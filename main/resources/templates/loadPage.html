@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Транзакции</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div>
+            <div class="container mt-5">
+                <form th:method="POST" th:action="@{/loadP}">
+
+
+                    Способ доставки:
+                    <select name="id_delivery" id="id_delivery" class="form-control">
+                        <option th:each= "d : ${delivery}"  th:text="${d.getName()}" th:value="${d.getID()}"></option>
+                    </select>
+                    <br/>
+                    <br/>
+                    Тренажёр:
+                    <select name="id_trainer" id="id_trainer" class="form-control">
+                        <option th:each= "t : ${trainer}" th:text="${t.getName()}" th:value="${t.getID()}"></option>
+                    </select>
+                    <br/>
+
+                    <input class="btn btn-primary" type="Submit" value="Готово"/>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
